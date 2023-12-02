@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(135deg, red, blue);
+    color: wheat;
+}
+
+.container{
+    margin: 12%;
+    width: 90%;
+    max-width: 700px;
+}
+.customSlider{
+    background: transparent;
+    color: black;
+}
+#slider{
+    -webkit-appearance: none;
+    width: 55%;
+    height: 6px;
+    border-radius: 5px;
+    outline: none;
+    background:black;;
+    margin-top: 70px;
+}
+
+#slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    color: black;
+    background: white;
+    border-radius: 20px;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#slider::-webkit-slider-thumb:hover {
+    background-color: rgb(244, 27, 27);
+    box-shadow: 0 0 6px 0 #fd423b
+}
+#currValue{
+    display: flex;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 10px;
+    width: 55px;
+    height: 55px;
+    background: greenyellow;
+    color: rgb(2, 16, 86);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 11cm;
+    margin-top: -1cm;
+    border-radius: 4px;
+}
+#GeneratePassButton{
+
+    border: 0;
+    outline: 0;
+    background: #019f55;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+#GeneratePassButton img{
+    width: 28px;
+    margin-right: 10px;
+}
+
+.display{
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 20px;
+    border-radius: 8px;
+}
+
+.display img{
+    width: 30px;
+    cursor: pointer; 
+}
+
+.display input[type="text"] {
+    width: 90%;
+}
+
+.display input {
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+#copyMessage{
+    display: none;
+    color: red;
+    font-size: 15px;
+    font-weight: 800;
+    padding-left: 10px;
+}

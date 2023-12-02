@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WePasss</title>
+    <link rel="stylesheet" href="styleNew.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Instantly generate a secure random password with wePass</h1>
+        <div class="customSlider">
+            <input type="range" min="0" max="35" id="slider">
+            <div id="currValue">20</div>
+        </div>
+
+        <div class="display">
+            <input type="text" id="password" placeholder="Password">
+            <img src="copy.png" id="copyImg" onclick="copyPassword()">
+            <span id="copyMessage">Copied to clipboard</span>
+        </div>
+        <button id="GeneratePassButton" onclick="createPassword(currValue.textContent)"> <img src="generate.png"><img src>Generate
+            Password</button>
+
+    </div>
+
+
+</body>
+
+<script>
+    const slider = document.getElementById("slider");
+    const currValue = document.getElementById("currValue");
+    const passwordBox1 = document.getElementById("password");
+    const copyMsg = document.getElementById("copyImg");
+    const generateButton = document.getElementById("GeneratePassButton");
+    const copyMessage = document.getElementById("copyMessage");
+
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "`~!@#$%^&*()-_=[]{};:,.<>/?";
+    const allChars = upperCase + numbers + lowerCase + symbols;
+    var len = 35;
+
+    currValue.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        currValue.innerHTML = this.value;
+        createPassword(this.value);
+    }
+    
+    function createPassword(len) {
+        var password = "";
+
+        while(password.length < len){
+            password+= allChars[Math.floor(Math.random() * allChars.length)]
+        }
+        passwordBox1.value = password;
+    }
+
+    function copyPassword(){
+        passwordBox1.select();
+        document.execCommand("copy");
+        copyMessage.style.display = "inline";
+        setTimeout(() => {
+                copyMessage.style.display = "none";
+            }, 2000);
+
+    }
+
+</script>
+
+</html>
